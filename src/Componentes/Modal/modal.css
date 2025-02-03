@@ -1,0 +1,26 @@
+html {
+    --cor-fundo: #121212;
+    --cor-header: #007BFF;
+    --cor-botao-primario: #FF6B00;
+    --cor-botao-hover: #E55B00;
+    --cor-texto-input: #FFFFFF;
+    --cor-texto-input-secundario: #E0E0E0;
+    --cor-borda: #8A2BE2;
+    --cor-hover-neon: rgba(255, 255, 255, 0.3)
+}
+.modal-area{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.modal-area h1{
+    color: var(--cor-texto-input);
+}
+.modal-area form{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: auto;
+    margin: 20px 0;
+}

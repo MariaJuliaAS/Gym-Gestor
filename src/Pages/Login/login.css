@@ -1,0 +1,135 @@
+html {
+    --cor-fundo: #121212;
+    --cor-header: #007BFF;
+    --cor-botao-primario: #FF6B00;
+    --cor-botao-hover: #E55B00;
+    --cor-texto-input: #FFFFFF;
+    --cor-texto-input-secundario: #E0E0E0;
+    --cor-borda: #8A2BE2;
+    --cor-hover-neon: rgba(255, 255, 255, 0.3)
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    background-color: var(--cor-fundo);
+}
+
+.motivacional-area {
+    flex: 1;
+    background-color: var(--cor-header);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+.info-area {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 auto;
+    max-width: 80%;
+}
+
+.info-area h1 {
+    font-size: 44px;
+    margin-bottom: 28px;
+    color: var(--cor-texto-input);
+}
+
+.info-area h3 {
+    color: var(--cor-texto-input);
+}
+
+.info-area img {
+    margin-top: 16px;
+    margin-bottom: 56px;
+    object-fit: cover;
+    width: 464px;
+    height: auto;
+    border-radius: 50%;
+}
+
+.info-area p {
+    font-size: 20px;
+    text-align: center;
+    color: var(--cor-texto-input);
+}
+
+.cadastro-area {
+    flex: 2;
+    background-color: var(--cor-fundo);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.login-area {
+    background-color: var(--cor-header);
+    width: 50%;
+    height: 70%;
+    border-radius: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.login-area h1 {
+    color: var(--cor-texto-input);
+    font-size: 32px;
+}
+
+.login-area form {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    padding: 26px 0;
+}
+
+.login-area form input {
+    padding: 12px 6px;
+    margin-bottom: 24px;
+    border: none;
+    background-color: transparent;
+    border-bottom: 1px solid var(--cor-texto-input);
+    outline: none;
+    color: var(--cor-texto-input);
+}
+
+.login-area form input::placeholder {
+    color: var(--cor-texto-input);
+}
+
+.login-area form input:focus {
+    border-bottom: 2px solid var(--cor-texto-input-secundario);
+}
+
+.login-area form button {
+    padding: 12px 6px;
+    border: none;
+    border-radius: 28px;
+    font-weight: bold;
+    font-size: 18px;
+    color: var(--cor-texto-input);
+    background-color: var(--cor-botao-primario);
+    margin-top: 12px;
+    transition: all 0.8s;
+    cursor: pointer;
+}
+
+.login-area form button:hover {
+    box-shadow: 6px 6px 15px var(--cor-hover-neon);
+    background-color: var(--cor-botao-hover);
+}
+
+.login-area a {
+    text-decoration: none;
+    color: var(--cor-texto-input);
+    font-size: 18px;
+    font-weight: bold;
+}

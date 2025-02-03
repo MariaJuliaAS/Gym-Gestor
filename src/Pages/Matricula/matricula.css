@@ -1,0 +1,115 @@
+html {
+    --cor-fundo: #121212;
+    --cor-header: #007BFF;
+    --cor-botao-primario: #FF6B00;
+    --cor-botao-hover: #E55B00;
+    --cor-texto-input: #FFFFFF;
+    --cor-texto-input-secundario: #E0E0E0;
+    --cor-borda: #8A2BE2;
+    --cor-hover-neon: rgba(255, 255, 255, 0.3)
+}
+.container-matricula{
+    width: 100%;
+    height: 100vh;
+    background-color: var(--cor-fundo);
+}
+header{
+    height: 80px;
+    background-color: var(--cor-header);
+    border-bottom-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+header h1{
+    color: var(--cor-texto-input);
+    font-size: 38px;
+}
+.header-btns a{
+    text-decoration: none;
+    color: var(--cor-texto-input);
+    font-weight: bold;
+    font-size: 18px;
+    background-color: var(--cor-botao-primario);
+    padding: 5px 10px;
+    border-radius: 28px;
+    transition: all 0.8s;
+}
+.header-btns button{
+    margin-left: 24px;
+    border: none;
+    color: var(--cor-texto-input);
+    font-weight: bold;
+    font-size: 18px;
+    background-color: var(--cor-botao-primario);
+    padding: 5px 10px;
+    border-radius: 28px;
+    transition: all 0.8s;
+    cursor: pointer;
+}
+.header-btns a:hover, .header-btns button:hover{
+    box-shadow: 6px 6px 15px var(--cor-hover-neon);
+    background-color: var(--cor-botao-hover);
+    padding: 8px 18px;
+}
+.matricula-area{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: calc(100vh - 80px);
+}
+.form-area{
+    width: 80%;
+    height: 80%;
+    background-color: var(--cor-header);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 28px;
+}
+.form-area h1{
+    color: var(--cor-texto-input);
+    margin-bottom: 24px;
+    font-size: 28px;
+}
+.form-area form{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+.input-matricula{
+    border: none;
+    border-bottom: 1px solid var(--cor-texto-input);
+    background-color: var(--cor-header);
+    color: var(--cor-texto-input);
+    margin: 12px 0;
+    padding: 15px;
+    font-size: 16px;
+    outline: none;
+}
+.form-area input::placeholder{
+    color: var(--cor-texto-input);
+    font-size: 16px;
+}
+.input-matricula:focus{
+    border-bottom: 2px solid var(--cor-texto-input-secundario);
+}
+.buttons button{
+    margin: 24px 12px 0 12px;
+    padding: 12px 78px;
+    border: none;
+    border-radius: 28px;
+    font-weight: bold;
+    font-size: 18px;
+    color: var(--cor-texto-input);
+    background-color: var(--cor-botao-primario);
+    transition: all 0.8s;
+    cursor: pointer;
+}
+.buttons button:hover{
+    box-shadow: 6px 6px 15px var(--cor-hover-neon);
+    background-color: var(--cor-botao-hover);
+}
