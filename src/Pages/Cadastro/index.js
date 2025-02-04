@@ -11,6 +11,7 @@ function Cadastro() {
     const [senha, setSenha] = useState('');
     const [academia, setAcademia] = useState('');
     const [endereco, setEndereco] = useState('');
+    const [mostrarSenha, setMostrarSenha] = useState(false);
 
     let navigate = useNavigate();
 
@@ -22,7 +23,7 @@ function Cadastro() {
                 const usuario = infoUsuario.user
                 sendEmailVerification(usuario)
                     .then(() => {
-                        toast.success('Nova academia cadastrada! Um email de verificação foi enviado.', {closeOnClick: true})
+                        toast.success('Nova academia cadastrada! Um email de verificação foi enviado.', { closeOnClick: true })
                         setEmail('')
                         setSenha('')
                         navigate('/', { replace: true })
@@ -48,7 +49,7 @@ function Cadastro() {
                     })
                 }
             })
-        
+
     }
 
     return (
@@ -59,18 +60,18 @@ function Cadastro() {
                         <h1>Cadastro</h1>
                         <form onSubmit={cadastrar}>
                             <input
-                            type='text'
-                            placeholder='Nome da academia'
-                            required
-                            value={academia}
-                            onChange={(e) => setAcademia(e.target.value)}
+                                type='text'
+                                placeholder='Nome da academia'
+                                required
+                                value={academia}
+                                onChange={(e) => setAcademia(e.target.value)}
                             />
                             <input
-                            type='text'
-                            placeholder='Endereço'
-                            required
-                            value={endereco}
-                            onChange={(e) => setEndereco(e.target.value)}
+                                type='text'
+                                placeholder='Endereço'
+                                required
+                                value={endereco}
+                                onChange={(e) => setEndereco(e.target.value)}
                             />
                             <input
                                 type='email'
@@ -80,12 +81,23 @@ function Cadastro() {
                                 onChange={(e) => setEmail(e.target.value)}
                             />
                             <input
-                                type='password'
+                                type={mostrarSenha ? 'text' : 'password'}
                                 placeholder='Senha'
                                 required
                                 value={senha}
                                 onChange={(e) => setSenha(e.target.value)}
                             />
+                            <div>
+                                <input
+                                    type='checkbox'
+                                    onClick={() => setMostrarSenha(!mostrarSenha)}
+                                    id='mostrar-senha'
+                                    style={{ marginRight: '5px' }}
+                                />
+                                <label id='mostrar-senha' style={{ color: '#fff' }}>
+                                    {mostrarSenha ? 'Ocultar senha' : 'Mostrar senha'}
+                                </label>
+                            </div>
                             <button type='submit'>Cadastrar</button>
                         </form>
                         <Link to='/'>Sua academia já está cadastrada? Entre aqui.</Link>

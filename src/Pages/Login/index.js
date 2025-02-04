@@ -9,19 +9,20 @@ import { toast } from 'react-toastify';
 function LoginApp() {
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
+    const [mostrarSenha, setMostrarSenha] = useState(false);
 
     let navigate = useNavigate();
 
     useEffect(() => {
 
-        async function verificadorLogin(){
+        async function verificadorLogin() {
             onAuthStateChanged(auth, (user) => {
-                if(user){
-                    navigate('/matricula', {replace: true})
+                if (user) {
+                    navigate('/matricula', { replace: true })
                 }
             })
         }
-        
+
         verificadorLogin()
     }, [])
 
@@ -72,12 +73,25 @@ function LoginApp() {
                                 onChange={(e) => setEmail(e.target.value)}
                             />
                             <input
-                                type='password'
+                                type={mostrarSenha ? 'text' : 'password'}
                                 placeholder='Senha'
                                 required
                                 value={senha}
                                 onChange={(e) => setSenha(e.target.value)}
                             />
+
+                            <div>
+                                <input
+                                    type='checkbox'
+                                    onClick={() => setMostrarSenha(!mostrarSenha)}
+                                    id='mostrar-senha'
+                                    style={{ marginRight: '5px' }}
+                                />
+                                <label id='mostrar-senha' style={{ color: '#fff' }}>
+                                    {mostrarSenha ? 'Ocultar senha' : 'Mostrar senha'}
+                                </label>
+                            </div>
+
                             <button type='submit'>Entrar</button>
                         </form>
                         <Link to='/cadastrar'>Cadastrar nova academia.</Link>
