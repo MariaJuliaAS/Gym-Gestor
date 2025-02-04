@@ -2,8 +2,8 @@ import './login.css';
 import picture from '../../img/academia.png';
 import { useNavigate, Link } from 'react-router-dom';
 import { auth } from '../../Services/firebaseConnection';
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import { useState } from 'react';
+import { signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
+import { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
 
 function LoginApp() {
@@ -11,6 +11,19 @@ function LoginApp() {
     const [senha, setSenha] = useState('');
 
     let navigate = useNavigate();
+
+    useEffect(() => {
+
+        async function verificadorLogin(){
+            onAuthStateChanged(auth, (user) => {
+                if(user){
+                    navigate('/matricula', {replace: true})
+                }
+            })
+        }
+        
+        verificadorLogin()
+    }, [])
 
     async function entrar(event) {
         event.preventDefault();
