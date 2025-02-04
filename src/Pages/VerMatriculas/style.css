@@ -115,6 +115,7 @@ html {
     }
     .modal-content{
         width: 80%;
+        height: 80%
     }
 }
 @media (max-width: 500px){
@@ -129,6 +130,6 @@ html {
     }
     .modal-content{
         width: 90%;
-        height: 70%;
+        height: 80%;
     }
 }
