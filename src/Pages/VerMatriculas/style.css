@@ -132,4 +132,7 @@ html {
         width: 90%;
         height: 80%;
     }
+    .texto-carregando h1{
+        font-size: 22px;
+    }
 }
