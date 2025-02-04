@@ -17,8 +17,10 @@ function LoginApp() {
 
         async function verificadorLogin() {
             onAuthStateChanged(auth, (user) => {
-                if (user) {
+                if (user && user.emailVerified) {
                     navigate('/matricula', { replace: true })
+                }else{
+                    navigate('/', {replace: true})
                 }
             })
         }
