@@ -29,7 +29,7 @@ function Matricula() {
         event.preventDefault();
 
         if (!nome || !telefone || !mensalidade || !pagamento || !vencimento) {
-            toast.warn('Por faovr, preencha todos os campos!', { position: 'bottom-right', closeOnClick: true })
+            toast.warn('Por favor, preencha todos os campos!', { position: 'bottom-right', closeOnClick: true })
             return
         } else if (telefone.length < 11) {
             toast.warn('Por favor, insira um número de telefone válido!', { position: 'bottom-right', closeOnClick: true })
@@ -45,7 +45,7 @@ function Matricula() {
             userId: auth.currentUser.uid
         })
             .then(() => {
-                toast.success('Usuário cadastrado com sucesso!', { position: 'bottom-right', closeOnClick: true })
+                toast.success('Matrícula feita com sucesso!', { position: 'bottom-right', closeOnClick: true })
                 setNome('')
                 setTelefone('')
                 setMensalidade('')

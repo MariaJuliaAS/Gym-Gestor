@@ -129,5 +129,6 @@ html {
     }
     .modal-content{
         width: 90%;
+        height: 70%;
     }
 }

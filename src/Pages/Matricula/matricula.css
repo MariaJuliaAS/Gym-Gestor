@@ -194,6 +194,7 @@ header h1 {
         font-size: 22px;
     }
     .modal-content-info{
-        width: 80%;
+        width: 90%;
+        height: 70%;
     }
 }
