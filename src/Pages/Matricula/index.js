@@ -5,6 +5,10 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useState } from 'react';
 import { addDoc, collection } from 'firebase/firestore';
 import { toast } from 'react-toastify';
+import Modal from 'react-modal';
+import ModalInfo from '../../Componentes/Modal-info';
+
+Modal.setAppElement('#root');
 
 function Matricula() {
     const [nome, setNome] = useState('')
@@ -12,6 +16,7 @@ function Matricula() {
     const [mensalidade, setMensalidade] = useState('')
     const [pagamento, setPagamento] = useState('')
     const [vencimento, setVencimento] = useState('')
+    const [statusModal, setStatusModal] = useState(false)
 
     let navigate = useNavigate();
 
@@ -36,7 +41,8 @@ function Matricula() {
             telefone: telefone,
             mensalidade: mensalidade,
             pagamento: pagamento,
-            vencimento: vencimento
+            vencimento: vencimento,
+            userId: auth.currentUser.uid
         })
             .then(() => {
                 toast.success('Usuário cadastrado com sucesso!', { position: 'bottom-right', closeOnClick: true })
@@ -59,12 +65,21 @@ function Matricula() {
         setVencimento('')
     }
 
+    function abrirModal(){
+        setStatusModal(true)
+    }
+
+    function fecharModal(){
+        setStatusModal(false)
+    }
+
     return (
         <main className='container-matricula'>
             <header>
                 <h1>Gym Gestor</h1>
                 <div className='header-btns'>
                     <Link to='/verMatriculas'>Ver matriculas</Link>
+                    <button onClick={abrirModal}>Informações da academia</button>
                     <button onClick={deslogar}>Sair da conta</button>
                 </div>
             </header>
@@ -116,6 +131,14 @@ function Matricula() {
                     </div>
                 </div>
             </section>
+            <Modal
+            isOpen={statusModal}
+            contentLabel='Modal'
+            className='modal-content-info'
+            overlayClassName='modal-overlay' 
+            >
+                <ModalInfo fechar={fecharModal}/>
+            </Modal>
         </main>
     )
 }

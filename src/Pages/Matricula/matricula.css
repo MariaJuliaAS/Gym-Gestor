@@ -1,32 +1,36 @@
 html {
-    --cor-fundo: #121212;
+    --cor-fundo-secundario: #d0dddf;
     --cor-header: #007BFF;
     --cor-botao-primario: #FF6B00;
     --cor-botao-hover: #E55B00;
     --cor-texto-input: #FFFFFF;
     --cor-texto-input-secundario: #E0E0E0;
     --cor-borda: #8A2BE2;
-    --cor-hover-neon: rgba(255, 255, 255, 0.3)
+    --cor-box-shadow: rgba(0, 0, 0, 0.5);
+    --cor-preto: #000;
+    --cor-fundo-destaque: #fff;
 }
-.container-matricula{
+
+.container-matricula {
     width: 100%;
-    height: 100vh;
-    background-color: var(--cor-fundo);
+    height: calc(100vh - 80px);
+    background-color: var(--cor-fundo-destaque);
 }
-header{
+
+header {
     height: 80px;
     background-color: var(--cor-header);
-    border-bottom-right-radius: 12px;
-    border-bottom-left-radius: 12px;
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
-header h1{
+
+header h1 {
     color: var(--cor-texto-input);
     font-size: 38px;
 }
-.header-btns a{
+
+.header-btns a {
     text-decoration: none;
     color: var(--cor-texto-input);
     font-weight: bold;
@@ -35,8 +39,10 @@ header h1{
     padding: 5px 10px;
     border-radius: 28px;
     transition: all 0.8s;
+    text-align: center;
 }
-.header-btns button{
+
+.header-btns button {
     margin-left: 24px;
     border: none;
     color: var(--cor-texto-input);
@@ -47,57 +53,70 @@ header h1{
     border-radius: 28px;
     transition: all 0.8s;
     cursor: pointer;
+    text-align: center;
 }
-.header-btns a:hover, .header-btns button:hover{
-    box-shadow: 6px 6px 15px var(--cor-hover-neon);
+
+.header-btns a:hover,
+.header-btns button:hover {
+    box-shadow: 0 6px 15px var(--cor-box-shadow);
     background-color: var(--cor-botao-hover);
-    padding: 8px 18px;
 }
-.matricula-area{
+
+.matricula-area {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     height: calc(100vh - 80px);
+    background-image: url('../../img/wave.svg');
+    background-repeat: no-repeat;
+    background-position: bottom;
 }
-.form-area{
+
+.form-area {
     width: 80%;
     height: 80%;
-    background-color: var(--cor-header);
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    border-radius: 28px;
+    border-radius: 4px;
 }
-.form-area h1{
-    color: var(--cor-texto-input);
+
+.form-area h1 {
+    color: var(--cor-preto);
     margin-bottom: 24px;
     font-size: 28px;
 }
-.form-area form{
+
+.form-area form {
     display: flex;
     flex-direction: column;
     width: 70%;
+    margin-bottom: 24px;
 }
-.input-matricula{
+
+.input-matricula {
     border: none;
-    border-bottom: 1px solid var(--cor-texto-input);
-    background-color: var(--cor-header);
-    color: var(--cor-texto-input);
+    border-bottom: 1px solid var(--cor-preto);
+    background-color: var(--cor-fundo-destaque);
+    color: var(--cor-preto);
     margin: 12px 0;
     padding: 15px;
     font-size: 16px;
     outline: none;
 }
-.form-area input::placeholder{
-    color: var(--cor-texto-input);
+
+.form-area input::placeholder {
+    color: var(--cor-preto);
     font-size: 16px;
 }
+
 .input-matricula:focus{
-    border-bottom: 2px solid var(--cor-texto-input-secundario);
+    border-bottom: 2px solid var(--cor-preto);
 }
-.buttons button{
+
+.buttons button {
     margin: 24px 12px 0 12px;
     padding: 12px 78px;
     border: none;
@@ -109,7 +128,72 @@ header h1{
     transition: all 0.8s;
     cursor: pointer;
 }
-.buttons button:hover{
-    box-shadow: 6px 6px 15px var(--cor-hover-neon);
+
+.buttons button:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
     background-color: var(--cor-botao-hover);
+}
+.modal-content-info{
+    width: 40%;
+    height: 50%;
+    background-color: var(--cor-header);
+    border: none;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 900px){
+    header{
+        justify-content: space-between;
+    }
+    .header-btns a, .header-btns button{
+        font-size: 16px;
+        margin-right: 5px;
+        margin-left: 5px;
+    }   
+    header h1{
+        font-size: 32px;
+        margin-left: 5px;
+    }
+    .modal-content-info{
+        width: 60%;
+    }
+}
+@media (max-width: 700px){
+    .header-btns{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    .header-btns a, .header-btns button{
+        max-width: 30%;
+        font-size: 14px;
+    }
+    header h1{
+        font-size: 28px;
+    }
+    .buttons{
+        display: flex;
+        flex-direction: column;
+    }
+    .modal-content-info{
+        width: 70%;
+    }
+}
+@media (max-width: 500px){
+    .buttons button{
+        padding: 8px 65px;
+    }
+    .header-btns a, .header-btns button{
+        max-width: 35%;
+        font-size: 12px;
+    }
+    header h1{
+        font-size: 22px;
+    }
+    .modal-content-info{
+        width: 80%;
+    }
 }

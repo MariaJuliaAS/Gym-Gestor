@@ -1,12 +1,12 @@
 import { signOut } from 'firebase/auth';
 import { auth, db } from '../../Services/firebaseConnection';
 import { useNavigate, Link } from 'react-router-dom';
-import { onSnapshot, deleteDoc, doc, collection } from 'firebase/firestore';
+import { onSnapshot, deleteDoc, doc, collection, query, where } from 'firebase/firestore';
 import { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
 import './style.css';
 import Modal from 'react-modal';
-import ConteudoModal from '../../Componentes/Modal';
+import ConteudoModal from '../../Componentes/Modal-editar';
 
 Modal.setAppElement('#root');
 
@@ -20,7 +20,14 @@ function VerMatriculas() {
 
     useEffect(() => {
         async function carregarMatriculas() {
-            onSnapshot(collection(db, 'matriculas'), (snapshot) => {
+            if(!auth.currentUser) return
+
+            const q = query(
+                collection(db, 'matriculas'),
+                where('userId', '==', auth.currentUser.uid)
+            )
+
+            onSnapshot(q, (snapshot) => {
                 let lista = []
 
                 snapshot.forEach((info) => {

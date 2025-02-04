@@ -1,29 +1,38 @@
 html {
-    --cor-fundo: #121212;
+    --cor-fundo-secundario: #d0dddf;
     --cor-header: #007BFF;
     --cor-botao-primario: #FF6B00;
     --cor-botao-hover: #E55B00;
     --cor-texto-input: #FFFFFF;
     --cor-texto-input-secundario: #E0E0E0;
     --cor-borda: #8A2BE2;
-    --cor-hover-neon: rgba(255, 255, 255, 0.3)
+    --cor-box-shadow: rgba(0, 0, 0, 0.5);
+    --cor-preto: #000;
+    --cor-fundo-destaque: #fff;
 }
 
 .container {
     width: 100%;
     height: 100vh;
     display: flex;
-    background-color: var(--cor-fundo);
+    justify-content: center;
+    align-items: center;
+    background-color: var(--cor-fundo-secundario);
 }
-
+.container section{
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    min-height: 90%;
+}
 .motivacional-area {
     flex: 1;
     background-color: var(--cor-header);
     display: flex;
     justify-content: center;
     align-items: center;
-    border-top-left-radius: 12px;
-    border-bottom-left-radius: 12px;
+    border-bottom-right-radius:4px;
+    border-top-right-radius: 4px;
 }
 
 .info-area {
@@ -38,17 +47,19 @@ html {
     font-size: 44px;
     margin-bottom: 28px;
     color: var(--cor-texto-input);
+    text-align: center;
 }
 
 .info-area h3 {
     color: var(--cor-texto-input);
+    text-align: center;
 }
 
 .info-area img {
     margin-top: 16px;
     margin-bottom: 56px;
     object-fit: cover;
-    width: 464px;
+    width: 85%;
     height: auto;
     border-radius: 50%;
 }
@@ -60,18 +71,21 @@ html {
 }
 
 .cadastro-area {
-    flex: 2;
-    background-color: var(--cor-fundo);
+    flex: 1;
+    background-color: var(--cor-fundo-destaque);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    border-bottom-left-radius:4px;
+    border-top-left-radius: 4px;
+    height: auto;
 }
 
 .login-area {
     background-color: var(--cor-header);
-    width: 50%;
-    height: 70%;
+    width: 70%;
+    height: 80%;
     border-radius: 28px;
     display: flex;
     justify-content: center;
@@ -118,12 +132,12 @@ html {
     color: var(--cor-texto-input);
     background-color: var(--cor-botao-primario);
     margin-top: 12px;
-    transition: all 0.8s;
+    transition: all 0.5s;
     cursor: pointer;
 }
 
 .login-area form button:hover {
-    box-shadow: 6px 6px 15px var(--cor-hover-neon);
+    box-shadow: 0 6px 15px var(--cor-box-shadow);
     background-color: var(--cor-botao-hover);
 }
 
@@ -132,4 +146,54 @@ html {
     color: var(--cor-texto-input);
     font-size: 18px;
     font-weight: bold;
+    text-align: center;
+    max-width: 80%;
+}
+
+@media (max-width: 1300px){
+    .container{
+        overflow: auto;
+        align-items: flex-start;
+    }
+    .container section{
+        flex-direction: column;
+        margin: 40px 0;
+    }
+    .cadastro-area{
+        min-height: 700px;
+        flex: none;
+    }
+    .motivacional-area{
+        flex: none;
+    }
+    .info-area{
+        margin: 24px 0;
+    }
+    .login-area{
+        height: 500px;
+    }
+}
+
+@media (max-width: 400px){
+    .container section{
+        height: 100vh;
+        width: 100%;
+        margin: 0;
+    }
+    .login-area{
+        width: 90%;
+    }
+    .login-area h1, .info-area h1{
+        font-size: 26px;
+    }
+    .login-area form button{
+        padding: 6px 3px;
+    }
+    .login-area a, .info-area p{
+        font-size: 16px;
+    }
+    .info-area h3{
+        font-size: 18px;
+    }
+    
 }

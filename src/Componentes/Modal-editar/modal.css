@@ -1,12 +1,14 @@
 html {
-    --cor-fundo: #121212;
+    --cor-fundo-secundario: #d0dddf;
     --cor-header: #007BFF;
     --cor-botao-primario: #FF6B00;
     --cor-botao-hover: #E55B00;
     --cor-texto-input: #FFFFFF;
     --cor-texto-input-secundario: #E0E0E0;
     --cor-borda: #8A2BE2;
-    --cor-hover-neon: rgba(255, 255, 255, 0.3)
+    --cor-box-shadow: rgba(0, 0, 0, 0.5);
+    --cor-preto: #000;
+    --cor-fundo-destaque: #fff;
 }
 .modal-area{
     width: 100%;
@@ -15,7 +17,7 @@ html {
     align-items: center;
 }
 .modal-area h1{
-    color: var(--cor-texto-input);
+    color: var(--cor-preto);
 }
 .modal-area form{
     display: flex;
@@ -23,4 +25,19 @@ html {
     width: 80%;
     margin: auto;
     margin: 20px 0;
+}
+@media (max-width: 1150px){
+    .buttons{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+@media (max-width: 850px){
+    .buttons{
+        flex-direction: column;
+    }
+    .modal-area form{
+        width: 100%;
+    }
 }

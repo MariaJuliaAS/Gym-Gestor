@@ -1,0 +1,44 @@
+html {
+    --cor-fundo-secundario: #d0dddf;
+    --cor-header: #007BFF;
+    --cor-botao-primario: #FF6B00;
+    --cor-botao-hover: #E55B00;
+    --cor-texto-input: #FFFFFF;
+    --cor-texto-input-secundario: #E0E0E0;
+    --cor-borda: #8A2BE2;
+    --cor-box-shadow: rgba(0, 0, 0, 0.5);
+    --cor-preto: #000;
+    --cor-fundo-destaque: #fff;
+}
+.container-info{
+    max-width: 90%;
+    max-height: 70%;
+}
+.container-info h1{
+    margin-bottom: 24px;
+    color: var(--cor-texto-input);
+}
+.container-info button{
+    background-color: var(--cor-botao-primario);
+    border: none;
+    border-radius: 28px;
+    color: var(--cor-texto-input);
+    width: 100%;
+    padding: 10px 15px;
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.8s;
+}
+.container-info button:hover{
+    box-shadow: 0 6px 15px var(--cor-box-shadow);
+    background-color: var(--cor-botao-hover);
+}
+.area-info{
+    margin-bottom: 24px;
+}
+.area-info p{
+    font-size: 20px;
+    padding: 10px 5px;
+    color: var(--cor-texto-input);
+}
